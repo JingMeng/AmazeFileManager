@@ -6,13 +6,13 @@ buildscript {
     }
     repositories {
         google()
+        mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
-        classpath 'com.hiya:jacoco-android:0.2'
+        classpath 'com.android.tools.build:gradle:8.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.project.starter:easylauncher:6.1.0"
         // NOTE: Do not place your application dependencies here; they belong
@@ -30,7 +30,6 @@ allprojects {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven { url "https://jcenter.bintray.com" }
     }
     tasks.withType(Test).tap {
         configureEach {
@@ -148,7 +147,7 @@ subprojects {
             }
         }
         dependencies {
-            compileOnly 'com.github.pengrad:jdk9-deps:1.0'
+            compileOnly 'javax.annotation:javax.annotation-api:1.3.2'
 
             if (project.hasProperty('kapt')) {
                 kapt 'javax.xml.bind:jaxb-api:2.3.1'
